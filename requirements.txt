@@ -1,3 +1,7 @@
-django
+flask
+marshmallow
+torch
+torchvision
+pillow
+numpy
 gunicorn
-django-heroku
