@@ -83,14 +83,14 @@ if __name__ == '__main__':
         print('You are using your GPU')
     else:
         device = torch.device("cpu")
-    loadedGenerator = torch.load("../ignored/models/generator.pth", map_location=device)
+    loadedGenerator = torch.load("generator.pth", map_location=device)
     if isinstance(loadedGenerator, dict):
         generator = loadedGenerator["model"]
     else:
         generator = loadedGenerator
     generator.eval()
 
-    loadedEncoder = torch.load("../ignored/models/encoder.pth", map_location=device)
+    loadedEncoder = torch.load("encoder.pth", map_location=device)
     if isinstance(loadedEncoder, dict):
         encoder = loadedEncoder["model"]
     else:
