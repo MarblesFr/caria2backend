@@ -89,6 +89,7 @@ if __name__ == '__main__':
     else:
         generator = loadedGenerator
     generator.eval()
+    print("generator:" + generator)
 
     loadedEncoder = torch.load("encoder.pth", map_location=device)
     if isinstance(loadedEncoder, dict):
