@@ -77,26 +77,22 @@ def get_canvas():
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
-print("he: " + __name__);
-if __name__ == '__main__':
-    print("he2")
-    if torch.cuda.is_available():
-        device = torch.device("cuda:0")
-        print('You are using your GPU')
-    else:
-        device = torch.device("cpu")
-    loadedGenerator = torch.load("generator.pth", map_location=device)
-    if isinstance(loadedGenerator, dict):
-        generator = loadedGenerator["model"]
-    else:
-        generator = loadedGenerator
-    generator.eval()
-    print("generator:" + generator)
 
-    loadedEncoder = torch.load("encoder.pth", map_location=device)
-    if isinstance(loadedEncoder, dict):
-        encoder = loadedEncoder["model"]
-    else:
-        encoder = loadedEncoder
-    encoder.eval()
-    application.run()
+if torch.cuda.is_available():
+    device = torch.device("cuda:0")
+    print('You are using your GPU')
+else:
+    device = torch.device("cpu")
+loadedGenerator = torch.load("generator.pth", map_location=device)
+if isinstance(loadedGenerator, dict):
+    generator = loadedGenerator["model"]
+else:
+    generator = loadedGenerator
+generator.eval()
+
+loadedEncoder = torch.load("encoder.pth", map_location=device)
+if isinstance(loadedEncoder, dict):
+    encoder = loadedEncoder["model"]
+else:
+    encoder = loadedEncoder
+encoder.eval()
