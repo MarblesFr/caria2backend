@@ -6,7 +6,7 @@ import numpy
 from PIL import Image
 from flask import Flask, send_file, request, json, jsonify
 
-from src.utils import *
+from utils import *
 
 application = Flask(__name__)
 latent_space_size = 64
