@@ -77,7 +77,9 @@ def get_canvas():
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
+print("he: " + __name__);
 if __name__ == '__main__':
+    print("he2")
     if torch.cuda.is_available():
         device = torch.device("cuda:0")
         print('You are using your GPU')
