@@ -8,13 +8,13 @@ from flask import Flask, send_file, request, json, jsonify
 
 from src.utils import *
 
-app = Flask(__name__)
+application = Flask(__name__)
 latent_space_size = 64
 image_height = 256
 image_width = 768
 
 
-@app.route('/get')
+@application.route('/get')
 def get_output():
     argument = request.args.get('values', None, str)
     if argument is None:
@@ -27,7 +27,7 @@ def get_output():
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
-@app.route('/getMultiple')
+@application.route('/getMultiple')
 def get_outputs():
     argument = request.args.get('values', None, str)
     values = numpy.array(json.loads(argument), numpy.float32)
@@ -58,7 +58,7 @@ def image_from_values(input_values):
     else:
         return files[0]
 
-@app.route('/canvas', methods=['POST'])
+@application.route('/canvas', methods=['POST'])
 def get_canvas():
     file_image = request.files.get('image')
     if file_image is None:
@@ -96,4 +96,4 @@ if __name__ == '__main__':
     else:
         encoder = loadedEncoder
     encoder.eval()
-    app.run(host='localhost', port=8000, debug=True)
+    application.run()
