@@ -1,8 +1,8 @@
-# Python: Getting Started
+# caria2backend
 
-A barebones Django app, which can easily be deployed to Heroku.
+HTL Spengergasse Diploma Project.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+Generate cars that don't exist. (backend)
 
 ## Running Locally
 
